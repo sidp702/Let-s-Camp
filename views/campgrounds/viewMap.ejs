@@ -1,0 +1,66 @@
+<%- include ('../partials/header'); %>
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-3">
+            <p class="lead"> Let's Camp <i class="fas fa-campground"></i></p>
+            <div class="list-group">
+                <li class="list-group-item  text-center"><a href="/campgrounds/<%= campground._id %>">Campground Details</a></li>
+                <li class="list-group-item active text-center">View On Map</li>
+                <li class="list-group-item   text-center"><a href="/campgrounds/<%= campground._id %>/bookNow">Book Now</a></li>
+             </div>
+
+            
+         
+        
+            </div>
+        <div class="col-md-9">
+            <div class="thumbnail">
+                <div id="mapid"></div>
+            
+                <div class="caption-full">
+                    <h4 class="pull-right">₹<%= campground.price %>/night</h4>
+                    <h4><a> <%= campground.name %></a></h4>
+                    
+                    <p><%= campground.description %></p>
+                    <p>
+                        <em>Submitted by:<a href="/users/<%= campground.author.id %>"> <%= campground.author.username %></a>, <%= moment(campground.createdAt).fromNow() %></em>
+                    </p>
+                    <% if(currentUser && campground.author.id.equals(currentUser._id)){ %>
+                    <a class="btn btn-warning" href="/campgrounds/<%= campground._id %>/edit">Edit</a>
+                    <form class="delete-form" action="/campgrounds/<%= campground._id %>?_method=Delete" method="Post">
+                        <button  class="btn btn-danger"> Delete </button>
+                    </form>    
+                        <% } %>
+                        <div style="margin-top: 10px;">
+                            <a class="btn btn-default" href="/campgrounds/<%= campground._id %>"><i class="fa fa-arrow-left"></i> Go back</a>
+                        </div>
+                </div>
+            </div>
+            </div>
+            </div>
+            </div>
+            
+
+         
+
+<!-- //Show the Map using a SCRIPT <3 -->
+    <script>
+   var lat = <%=campground.lat %>;
+   var lng = <%=campground.lng %>;
+   //Display Map
+   
+   L.mapbox.accessToken = 'pk.eyJ1Ijoic2lkcDcwMiIsImEiOiJjazluN3l5dzkwYjA2M2ZwOWdvczR5aXF4In0.vPyiO4r9WoMHNBPF_0N99w';
+    var map = L.mapbox.map('mapid')
+    .setView([lat, lng], 9)
+    .addLayer(L.mapbox.styleLayer('mapbox://styles/sidp702/ck9n8rr2g49ye1inp5l9p85dy'));
+
+   
+    var marker = (L.marker([lat,lng], 9)).addTo(map); 
+    marker.bindPopup("<%=campground.name%>").openPopup();
+</script>    
+
+
+ 
+
+<%- include ('../partials/footer'); %>

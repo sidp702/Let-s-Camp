@@ -1,0 +1,61 @@
+
+
+
+
+
+.thumbnail img {
+  width:100%;
+}
+
+.thumbnail #userImage{
+  height: 300px;
+  width: 300px;
+}
+.thumbnail {
+  padding: 0;
+  /* border: none; */
+}
+
+.thumbnail .caption-full {
+  padding: 9px;
+}
+
+.checked {
+  color: orange;
+}
+
+.delete-form{
+  display: inline;
+}
+
+/* Google Maps */
+#mapid {
+  height: 400px;
+  width: 100%;
+}
+
+
+
+.thumbnail img {
+  width:100%;
+}
+
+.thumbnail {
+  padding: 0;
+}
+
+.thumbnail .caption-full {
+  padding: 9px;
+}
+
+
+.delete-form{
+  display: inline;
+}
+
+/* Google Maps */
+#mapid {
+  height: 400px;
+  width: 100%;
+}
+

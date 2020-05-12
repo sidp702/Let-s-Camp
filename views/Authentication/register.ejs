@@ -1,0 +1,63 @@
+<%- include ('../partials/header'); %>
+
+<!-- <h1>Sign Up</h1>
+<form action="/register" method="POST">
+    <input type="text" name="username" placeholder="username">
+    <input type="password" name="password" placeholder="password">
+    <button>Submit</button>
+</form> -->
+
+<h1 style="text-align: center;">Sign Up</h1>
+
+<div style="width: 30%; margin: 25px auto;">
+    <form action="/register" method="POST" enctype="multipart/form-data">
+
+    <div class="form-group">
+        <label for="username">Username </label>
+         <input class="form-control" type="text" name="username" placeholder="username">
+    </div>
+
+    <div class="form-group">
+        <label for="password">Password </label>
+        <input class="form-control" type="password" name="password" placeholder="password">
+   </div>
+
+   <div class="form-group">
+    <label for="firstName">First Name </label>
+    <input class="form-control" type="text" name="firstName" placeholder="first name">
+</div>
+
+<div class="form-group">
+    <label for="lastName">Last Name </label>
+    <input class="form-control" type="text" name="lastName" placeholder="last name">
+</div>
+
+<div class="form-group">
+    <label for="email">Email </label>
+    <input class="form-control" type="email" name="email" placeholder="email">
+</div>
+
+<div class="form-group">
+    <label for="number"> Contact Number </label>
+    <input class="form-control" type="number" name="mobile" placeholder="mobile number">
+</div>
+
+<div class="form-group">
+    <label for="userInfo">Tell us about yourself: </label>
+    <textarea rows = "4"  class="form-control"  name="userInfo" > </textarea>
+</div>
+<div class="form-group">
+    <input  type="file" id="userImage" name="userImage" accept="image/*" required >
+</div>
+   <div class="form-group">
+         <button class="btn btn-lg btn-primary btn-block" >Sign Up <i class="fas fa-sign-in-alt"></i></button>
+        
+        </div>
+           
+</form>
+</div>
+   
+</div>
+</div>
+
+<%- include ('../partials/footer'); %>

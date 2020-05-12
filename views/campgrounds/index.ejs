@@ -1,0 +1,73 @@
+<%- include ('../partials/header'); %>
+
+
+
+<div class="container">
+  
+    
+
+ <header class="jumbotron">
+     <div class="conatiner">
+    <h1>This is the campgrounds page  <i class="fas fa-campground fa-1x"></i> </h1>
+    <p>View our hand-picked campgrounds from all over the world</p>
+    <p><a class="btn btn-primary btn-lg" href="/campgrounds/new">Add a new Campground</a></p>
+    <p> 
+        
+        <% if(noMatch !== null) { %>
+            <h3><%= noMatch %></h3>
+            <% } %>
+        
+        
+    </p>
+   
+
+
+</div>
+</header>
+
+<div class="row text-center" style="display:flex; flex-wrap: wrap;">
+  
+    <div class="col-md-12">
+       
+       
+
+    </div>
+
+
+   
+
+    
+    
+        <% campgrounds.forEach(function(groundNames){ %>
+        
+            <div class="col-md-3 col-sm-6">
+                   
+                <div class="thumbnail">
+                    
+                    <img src="<%= groundNames.image[0] %>" height="300px" width="500px">
+                            <div class="caption">
+                                 <h4> <%= groundNames.name %> </h4>
+                                 <% if (groundNames.rating === 0) { %>
+                                    <em>No reviews yet.</em>
+                                    <% } else { %>
+                                    <span class="fa fa-star checked"></span>
+                                    <span class="fa fa-star <% if (groundNames.rating > 1.5) { %> checked <% } %>"></span>
+                                    <span class="fa fa-star <% if (groundNames.rating > 2.5) { %> checked <% } %>"></span>
+                                    <span class="fa fa-star <% if (groundNames.rating > 3.5) { %> checked <% } %>"></span>
+                                    <span class="fa fa-star <% if (groundNames.rating > 4.5) { %> checked <% } %>"></span>
+                                    <% } %>
+                           </div>
+                           <p>
+                     <a href="/campgrounds/<%= groundNames._id %>" class="btn btn-primary">More Info</a>      
+                            </p>
+                    </div>
+                 
+            </div>
+        <% }); %>
+     </div>
+
+   
+</div>
+
+
+<%- include ('../partials/footer'); %> 

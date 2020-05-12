@@ -1,0 +1,47 @@
+<%- include ('../partials/header'); %>
+
+<div class="row">
+	<div class="col-md-4">
+			<h1 class="text-center">  <%= user.firstName.toUpperCase()  + " " + user.lastName.toUpperCase() %></h1>
+		<div class="thumbnail" style="border: none;">
+			
+			<img id="userImage" src="<%= user.userImage %>" alt="user profile image" >
+			<div class="caption text-center"><a href="#"><i class="fas fa-user"></i>  <%= user.firstName.toUpperCase()  + " " + user.lastName.toUpperCase() %></a></div>
+			<div class="caption text-center"><a href="mailto:<%= user.email %>"><i class="fas fa-envelope"></i> <%= user.email %></a></div>
+			<div class="caption text-center"><a href="#"> <i class="fas fa-phone-alt"></i> <%= user.mobile %></a></div>
+		</div>
+		
+
+	</div>
+	<div class="col-md-8">
+		<div>
+			<h3>About <%= user.firstName.charAt(0).toUpperCase() + user.firstName.slice(1)%></h3>
+			<p><%= user.userInfo %>
+				Lorem ipsum dolor sit amet, consectetur adipisicing elit. Error quasi similique architecto ad modi sunt quaerat possimus, officiis quos. Voluptatibus repellendus exercitationem, id saepe sunt consectetur non quam sapiente assumenda.
+
+		Lorem ipsum dolor sit amet, consectetur adipisicing elit. Error quasi similique architecto ad modi sunt quaerat possimus, officiis quos. Voluptatibus repellendus exercitationem, id saepe sunt consectetur non quam sapiente assumenda.
+	
+			</p>
+		</div>
+		<h3><%= user.firstName.charAt(0).toUpperCase() + user.firstName.slice(1)%>'s campgrounds:</h3>
+
+		<ul>
+		<% campgrounds.forEach(function(campground) { %>
+		<div class="col-md-4 text-center">
+			<div class="thumbnail">
+			
+				<img src="<%= campground.image[0] %>" height="300px" width="500px" >
+				<div class="caption">
+						<h4><a href="/campgrounds/<%= campground.id %>" class="btn btn-primary"><%= campground.name %></a>
+				</div>
+			</div>
+		</div>
+		<% }); %>
+		</ul>
+	</div>
+</div>
+
+
+
+
+<%- include ('../partials/footer'); %>
